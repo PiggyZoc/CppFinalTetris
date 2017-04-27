@@ -1,8 +1,9 @@
-﻿Build started 2017/4/22 18:56:24.
+﻿Build started 2017/4/27 12:32:13.
      1>Project "G:\CPPFinal\CppFinalTetris\CppTetris\CppTetris\CppTetris.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         D:\VS2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         D:\VS2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "D:\汇编\Project2\Project2\Source.cpp"
          Source.cpp
+     1>d:\汇编\project2\project2\source.cpp(536): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
        Link:
          D:\VS2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\CPPFinal\CppFinalTetris\CppTetris\Debug\CppTetris.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:\CPPFinal\CppFinalTetris\CppTetris\Debug\CppTetris.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\CPPFinal\CppFinalTetris\CppTetris\Debug\CppTetris.lib" /MACHINE:X86 Debug\Source.obj
          CppTetris.vcxproj -> G:\CPPFinal\CppFinalTetris\CppTetris\Debug\CppTetris.exe
@@ -10,4 +11,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:09.21
+Time Elapsed 00:00:07.32
