@@ -95,7 +95,6 @@ namespace CppTeris {
 		{
 			for (int x = 0; x<COLS; x++)
 			{
-				
 				g->DrawRectangle(pen, x*CELL + 2, y*CELL + 2, CELL - 4, CELL - 4);
 			///	g->FillRectangle(solidBrush, x*CELL + 2, y*CELL + 2, CELL - 4, CELL - 4);
 			}
