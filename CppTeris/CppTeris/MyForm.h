@@ -1,5 +1,6 @@
 #pragma once
-
+#include<array>
+#include<iostream>
 #define CELL 20
 #define ROWS 25
 #define COLS 15
@@ -43,6 +44,7 @@ namespace CppTeris {
 	private:Graphics^ g;
 	private:System::Drawing::Brush^ brush;
 	private: System::Windows::Forms::PictureBox^  drawMap;
+	private: array<int,2>^ H = gcnew array<int, 2>(ROWS+1, COLS+1);;
 	protected:
 
 	private:
@@ -90,7 +92,12 @@ namespace CppTeris {
 		bitmap = gcnew Bitmap(drawMap->Width, drawMap->Height);
 		drawMap->Image = bitmap;
 		g = Graphics::FromImage(bitmap);
-	
+		for (int k = 0; k < ROWS; k++) {
+		//	H[k] = gcnew array < int >(COLS+2) ;
+			for (int l = 0; l < COLS ; l++)
+				H[k,l] = 0;
+
+		}
 		for (int y = 0; y<ROWS; y++)
 		{
 			for (int x = 0; x<COLS; x++)
@@ -99,8 +106,9 @@ namespace CppTeris {
 			///	g->FillRectangle(solidBrush, x*CELL + 2, y*CELL + 2, CELL - 4, CELL - 4);
 			}
 		}
+	//	for (int r = 0; r < H->Length; r++) std::cout << H[0] <<std:: endl;
 		
-	
+		
 	}
 	
 	};
