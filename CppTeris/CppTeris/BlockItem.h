@@ -4,15 +4,20 @@
 
 #define ROWS 25
 #define COLS 15
-ref class BlockItem
+ class BlockItem
 {
 public:
-	BlockItem();
+	BlockItem(){};
 	bool ExportBlock();
+	int getCur_left(){ return this->cur_left; };
+	int getCur_top(){ return this->cur_top; };
+	int getWidth_block(){ return this->width_block; };
+	int getHeight_block(){ return this->height_block;};
+	int *getBlock(){ return this->block; };
 private:
 	int *block = NULL;
-	int cur_left, cur_top;      
-	int width_block, height_block; 
+	int cur_left, cur_top;
+	int width_block, height_block;
 };
 
 bool BlockItem::ExportBlock(){
@@ -26,6 +31,7 @@ bool BlockItem::ExportBlock(){
 		}
 
 		sel = rand() % 7;
+		
 		switch (sel)
 		{
 		case 0:     //Ë®Æ½Ìõ
