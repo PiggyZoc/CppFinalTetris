@@ -1,5 +1,6 @@
 #include <iostream>
 #include<fstream>
+#include<math.h>
 #include <windows.h>
 #include <vector>
 #include <mmsystem.h>
@@ -53,7 +54,27 @@ void SetBack(int x, int y, BOOL bk) {
 bool Out(int x, int y) {
 	return x < 0 || y < 0 || x >= GameW || y >= GameH;
 }
-
+int get_Cur_MaxSocre(){
+	ifstream fin("max.txt");
+	int Datalen = -1;
+	int a[128] = { 0 };
+	int result = 0;
+	char c;
+	if (!fin)
+	{
+		cerr << "Can not open datain1 file." <<
+			endl;
+		getchar();
+		return 1;
+	};
+	while (!fin.eof())
+	{
+		Datalen++;
+		fin >> c;
+		a[Datalen] = c - '0';
+	};
+	fin.close();	for (int i = 0; i < Datalen; i++){		result += pow(10, Datalen - i-1)*a[i];	}	return result;
+}
 struct xBlock {
 public:
 	int len;
@@ -128,13 +149,25 @@ public:
 		if (g_nLife) {
 			g_nLife--;
 			//for (i = g_nLife; i < 6; i++) {
-			SetCursor(CtrlLeft + 2, 15);
+			SetCursor(CtrlLeft + 2, 16);
 			printf("%d", g_nLife);
-			ofstream out("max.txt");
-			if (out.is_open()){
-				out << g_nScore;
-				out.close();
+			if (g_nScore > g_nMaxScore){
+				g_nMaxScore = g_nScore;
+				ofstream out("max.txt");
+				if (out.is_open()){
+					out << g_nMaxScore;
+					out.close();
+				}
+				SetCursor(CtrlLeft, 11);
+				printf("%d", g_nMaxScore);
+
 			}
+			g_nScore = 0;
+			SetCursor(CtrlLeft, 13);
+			
+			for (int i = 0; i < 4; i++)printf("%c",' ');
+			SetCursor(CtrlLeft, 13);
+			printf("%d", g_nScore);
 		//	}
 			for (i = GameH - 1; i >= 0; i--) {
 				for (j = GameW - 1; j >= 0; j--) {
@@ -271,7 +304,7 @@ void MissionInit() {
 	Case = 1;
 	int i;
 	DrawFrame(0, 0, GameW, GameH);
-	DrawFrame(GameW * 2 + 4, 0, 4, GameH);
+	DrawFrame(GameW * 2 + 4, 0, 6, GameH);
 	SetCursor(CtrlLeft, 2);
 	printf("Next");
 
@@ -281,16 +314,21 @@ void MissionInit() {
 		SetCursor(CtrlLeft + i, 9);
 		printf("%c", 1);
 	}
-
+	SetCursor(CtrlLeft, 10);
+	printf("Max Score");
+	g_nMaxScore = get_Cur_MaxSocre();
 	SetCursor(CtrlLeft, 11);
-	printf("Score");
+	printf("%d", g_nMaxScore);
+
 	SetCursor(CtrlLeft, 12);
+	printf("Score");
+	SetCursor(CtrlLeft, 13);
 	printf("%d", g_nScore);
 
-	SetCursor(CtrlLeft, 14);
+	SetCursor(CtrlLeft, 15);
 	printf("Life");
 	//for (i = 0; i < g_nLife; i++) {
-		SetCursor(CtrlLeft + 2, 15);
+		SetCursor(CtrlLeft + 2, 16);
 		printf("%d", g_nLife);
 //    }
 
@@ -327,31 +365,33 @@ void Check() {
 			for (j = 0; j < GameW; j++) {
 				g_nGameBack[line[i]][j] = 0;
 			}
+			
 		}
+		int s = line[0];
+		
+		
+			for (i = 0; i < GameW; i++) {
 
-		for (i = 0; i < GameW; i++) {
-			int next = GameH - 1;
-			for (j = GameH - 1; j >= 0; j--) {
-				for (k = next; k >= 0; k--) {
-					if (g_nGameBack[k][i])
-						break;
+				for (j = s; j >= 0; j--) {
+
+					if (j >= 1)
+					{
+						BOOL is = g_nGameBack[j -1][i];
+						SetBack(i, j, is);
+						g_nGameBack[j][i] = is;
+					}
 				}
-				next = k - 1;
-				BOOL is = (k >= 0);
-				SetBack(i, j, is);
-				g_nGameBack[j][i] = is;
 			}
-		}
-
+		
 		g_nScore += 2 * line.size() - 1;
-		SetCursor(CtrlLeft, 12);
+		SetCursor(CtrlLeft, 13);
 		printf("%d", g_nScore);
 
 		if (g_nScore >= g_nDiff * g_nDiff * 10) {
 			if (g_nDiff <= 6)
 				g_nDiff++;
 		}
-		if (g_nScore >= 50 * (g_nLife + 1)) {
+		if (g_nScore >= 20 * (g_nLife + 1)) {
 			if (g_nLife <= 6)
 				g_nLife++;
 		}
