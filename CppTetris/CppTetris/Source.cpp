@@ -1,4 +1,5 @@
 #include <iostream>
+#include<fstream>
 #include <windows.h>
 #include <vector>
 #include <mmsystem.h>
@@ -25,8 +26,9 @@ BOOL g_bGameOver = FALSE;
 int g_nGameBack[GameH][GameW], Case;
 int nowKeyInfo = -1;
 int g_nDiff = 1;
-int g_nLife = 2;
+int g_nLife = 3;
 int g_nScore = 0;
+int g_nMaxScore = 0;
 
 void SetCursor(COORD cd) {
 	SetConsoleCursorPosition(g_hOutput, cd);
@@ -125,10 +127,15 @@ public:
 		}
 		if (g_nLife) {
 			g_nLife--;
-			for (i = g_nLife; i < 6; i++) {
-				SetCursor(CtrlLeft + i, 15);
-				printf("%c", ' ');
+			//for (i = g_nLife; i < 6; i++) {
+			SetCursor(CtrlLeft + 2, 15);
+			printf("%d", g_nLife);
+			ofstream out("max.txt");
+			if (out.is_open()){
+				out << g_nScore;
+				out.close();
 			}
+		//	}
 			for (i = GameH - 1; i >= 0; i--) {
 				for (j = GameW - 1; j >= 0; j--) {
 					SetBack(j, i, FALSE);
@@ -226,6 +233,7 @@ void GameInit() {
 	cursor_info.dwSize = 100;
 	SetConsoleCursorInfo(g_hOutput, &cursor_info);
 	xBlock::List.push_back(xBlock(3, "010111000"));
+//	xBlock::List.push_back(xBlock(3, "111111111"));
 	xBlock::List.push_back(xBlock(3, "110110000"));
 	xBlock::List.push_back(xBlock(3, "111001000"));
 	xBlock::List.push_back(xBlock(3, "111100000"));
@@ -281,13 +289,13 @@ void MissionInit() {
 
 	SetCursor(CtrlLeft, 14);
 	printf("Life");
-	for (i = 0; i < g_nLife; i++) {
-		SetCursor(CtrlLeft + i, 15);
-		printf("%c", 3);
-	}
+	//for (i = 0; i < g_nLife; i++) {
+		SetCursor(CtrlLeft + 2, 15);
+		printf("%d", g_nLife);
+//    }
 
 	SetCursor(CtrlLeft - 1, 19);
-	printf("@Metaphu");
+	printf("@Yan Liu");
 	SetCursor(CtrlLeft - 1, 20);
 	printf("Revised");
 }
