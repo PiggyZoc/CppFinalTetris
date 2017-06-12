@@ -73,7 +73,12 @@ int get_Cur_MaxSocre(){
 		fin >> c;
 		a[Datalen] = c - '0';
 	};
-	fin.close();	for (int i = 0; i < Datalen; i++){		result += pow(10, Datalen - i-1)*a[i];	}	return result;
+	fin.close();
+	for (int i = 0; i < Datalen; i++){
+		result += pow(10, Datalen - i-1)*a[i];
+	}
+	return result;
+
 }
 struct xBlock {
 public:
@@ -308,12 +313,7 @@ void MissionInit() {
 	SetCursor(CtrlLeft, 2);
 	printf("Next");
 
-	SetCursor(CtrlLeft, 8);
-	printf("Speed");
-	for (i = 0; i < g_nDiff; i++) {
-		SetCursor(CtrlLeft + i, 9);
-		printf("%c", 1);
-	}
+
 	SetCursor(CtrlLeft, 10);
 	printf("Max Score");
 	g_nMaxScore = get_Cur_MaxSocre();

@@ -1,18 +1,19 @@
-﻿Build started 2017/6/11 22:32:50.
+﻿Build started 2017/6/12 21:05:15.
      1>Project "E:\Android\CppFinalTetris\CppTetris\CppTetris\CppTetris.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          D:\vs\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
          Source.cpp
-     1>e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(76): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
-     1>e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(172): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
-                 e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(168) : definition of 'i' ignored
-                 e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(142) : definition of 'i' used
-     1>e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(174): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
-                 e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(168) : definition of 'i' ignored
-                 e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(142) : definition of 'i' used
-     1>e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(176): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
-                 e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(168) : definition of 'i' ignored
-                 e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(142) : definition of 'i' used
+     1>e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(78): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+     1>e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(177): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+                 e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(173) : definition of 'i' ignored
+                 e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(147) : definition of 'i' used
+     1>e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(179): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+                 e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(173) : definition of 'i' ignored
+                 e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(147) : definition of 'i' used
+     1>e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(181): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+                 e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(173) : definition of 'i' ignored
+                 e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(147) : definition of 'i' used
+     1>e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(310): warning C4101: 'i' : unreferenced local variable
      1>e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(357): warning C4018: '<' : signed/unsigned mismatch
      1>e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(364): warning C4018: '<' : signed/unsigned mismatch
      1>e:\android\cppfinaltetris\cpptetris\cpptetris\source.cpp(343): warning C4101: 'k' : unreferenced local variable
@@ -24,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.07
+Time Elapsed 00:00:05.83
